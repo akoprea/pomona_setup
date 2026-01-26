@@ -1,0 +1,91 @@
+# Explicitely installed apps and what they do as of 2026/01/08
+7zip = archive manager
+alacritty = terminal emulator
+amd-ucode = sys microcode
+base = sys
+base-devel = sys
+clamtk = antivirus
+dialog = tui stuff?
+discord = text server and voice chat
+dosfstools
+dunst = notification manager
+efibootmgr
+feh = image viewer and background setter
+ffmpegthumbnailer = enables thumbnails in nemo
+firefox = web browser
+flameshot = screenshot tool
+gedit = text editor
+gimp = photo editor
+git = distributed version control system
+gnome-keyring
+gnu-free-fonts
+htop = process manager
+hwinfo = prints hardware info
+intel-media-driver
+inxi = prints advanced hardware info
+irssi = terminal irc client
+iwd = intel's wireless daemon
+keepassxc = password manager
+kew = terminal music player
+less = terminal pager (text viewer)
+lf = terminal file manager
+lib32-vulkan-radeon
+libreoffice-still = office suite
+libva-intel-driver
+linux
+linux-firmware
+linux-headers
+man-db = man pages
+mc = terminal file manager
+mesa-utils
+minecraft-launcher
+mtools = command-line utilities
+nano = terminal text editor
+nemo = gui file manager
+network-manager-applet
+networkmanager
+noto-fonts-cjk
+noto-fonts-emoji
+openjdk-src = java
+openssh
+os-prober = scans disks for other operating systems
+pavucontrol = volume and audio control for pipewire
+picom = x-server compositor
+pipewire-alsa = audio server
+pipewire-pulse = audio server
+protontricks = steam game compatability layer tools
+python-mutagen = python*
+python-pip = python*
+rofi = app launcher
+smartmontools = monitors storage systems
+spicetify-cli = spotify mod
+spotify = gui music streamer and player
+sxhkd = keybinds manager
+tk = python*
+ttf-liberation
+vim = terminal text editor
+visual-studio-code-bin = code ide
+vlc = multimedia player
+vlc-plugins-all
+vulkan-intel
+vulkan-nouveau
+vulkan-radeon
+wget = internet scraper
+wine = windows app compatability layer
+wireless_tools
+wmname = window manager name tool
+wpa_supplicant
+xdg-utils
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-nouveau
+xorg-server
+xorg-xinit
+xorg-xrandr
+xorg-xsetroot
+xsel
+xterm
+yay = arch linux aur
+yay-debug
+zram-generator
+
