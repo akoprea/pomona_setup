@@ -1,0 +1,71 @@
+# keybinds
+
+# ===========
+# NORMAL KEYS
+# ===========
+
+# terminal
+super + Return
+	alacritty
+
+# app launcher
+alt + space
+	rofi -show drun -display-drun "" -terminal alacritty
+
+# web browser
+super + w
+	firefox
+
+# file explorer
+super + e
+	nemo
+
+# lock screen
+super + ctrl + l
+	slock
+
+# volume control gui
+super + ctrl + v
+	pavucontrol
+
+# dmenu sys menu
+super + ctrl + p
+	dmenu-sys
+
+# print screen
+super + Print
+	flameshot gui
+
+
+
+# ==============
+# AUDIO CONTROLS
+# ==============
+
+# volume up
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +10% && pkill -RTMIN+1 dwmblocks
+	# and update dwmblocks
+
+# volume down
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -10% && pkill -RTMIN+1 dwmblocks
+	# and update dwmblocks
+
+# volume mute
+## XF86AudioMute
+## 	pactl set-sink-mute 0 toggle
+
+# prev
+XF86AudioPrev
+	playerctl -p vlc,spotify,firefox previous
+
+# next
+XF86AudioNext
+	playerctl -p vlc,spotify,firefox next
+
+# play
+XF86AudioPlay
+	playerctl -p vlc,spotify,firefox play-pause
+
+
