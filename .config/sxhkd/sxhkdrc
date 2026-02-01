@@ -21,12 +21,12 @@ super + e
 	nemo
 
 # lock screen
-super + ctrl + l
-	slock
+## super + ctrl + l
+## 	slock
 
 # volume control gui
-super + ctrl + v
-	pavucontrol
+## super + ctrl + v
+## 	pavucontrol
 
 # dmenu sys menu
 super + ctrl + p
@@ -44,12 +44,14 @@ super + Print
 
 # volume up
 XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +10% && pkill -RTMIN+1 dwmblocks
+	pactl set-sink-volume 0 +10% && (sleep 0.1 && pkill -RTMIN+3 dwmblocks)
+	## pkill -RTMIN+1 dwmblocks
 	# and update dwmblocks
 
 # volume down
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -10% && pkill -RTMIN+1 dwmblocks
+	pactl set-sink-volume 0 -10% && (sleep 0.1 && pkill -RTMIN+3 dwmblocks)
+	## pkill -RTMIN+1 dwmblocks
 	# and update dwmblocks
 
 # volume mute
