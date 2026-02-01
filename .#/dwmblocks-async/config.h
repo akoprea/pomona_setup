@@ -19,11 +19,13 @@
 
 // Define blocks for the status feed as X(icon, cmd, interval, signal).
 #define BLOCKS(X)             \
-    X( " ", "~/.#/scripts/mediaplayer.sh", 0, 2 ) \
-    X( "", "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' ", 	0, 1 ) \
-    X( "", "echo $(grep -o '^[^ ]*' /proc/loadavg) $(free -h | sed -n \"2s/\\([^ ]* *\\)\\{2\\}\\([^ ]*\\).*/\\2/p\")", 	30, 0 ) \
-    X( "",  "date \"+%a %d %b %I:%M %P\" ", 		5, 0 ) 
+    X( " ", "~/.#/scripts/mediaplayer.sh",			0, 4 ) \
+    X( "", "~/.#/scripts/vol_ctrl.sh",				0, 3 ) \
+    X( "", "~/.#/scripts/cpu_mem_report.sh", 	   30, 2 ) \
+    X( "",  "~/.#/scripts/date_time_report.sh",		5, 1 ) 
 
 // X( "", "pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\\+%' | head -n1", 	0, 1 )
+// X( "", "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' ", 	0, 1 ) \
 
 #endif  // CONFIG_H
+

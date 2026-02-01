@@ -1,9 +1,5 @@
 #!/bin/sh
 
-## FORMAT_FILE="/tmp/dwmblocks_media_format"
-## [ ! -f "$FORMAT_FILE" ] && echo "0" > "$FORMAT_FILE"
-## FORMAT=$(cat "$FORMAT_FILE")
-
 PLAYERS="vlc spotify" # in priority order
 
 # find the first player that is Playing or Paused
@@ -31,26 +27,33 @@ case $BLOCK_BUTTON in
         fi
         ## [ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" previous # previous
         ;;
-    2)  # play/pause
-        [ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" play-pause
-        pkill -RTMIN+2 "${STATUSBAR:-dwmblocks}"
+    1)  # play/pause
+    	if [ -n "$ACTIVE_PLAYER" ]; then
+        	playerctl --player="$ACTIVE_PLAYER" play-pause
+        	sleep 0.05 # sleep because this case updates the ICON
+        	STATUS=$(playerctl --player="$ACTIVE_PLAYER" status 2>/dev/null) 
+    	fi
+    	;;
+    200)  # previous
+    	[ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" previous
         ;;
     3)  # next
         [ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" next
         ;;
-    4)  # 4
-    	[ -n "$ACTIVE_PLAYER" ] && notify-send -t 1000 "4"
+    4)  # raise volume
+    	[ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" volume "$(playerctl --player="$ACTIVE_PLAYER" volume | awk '{v=$1+0.1; if (v>1) v=1; print v}')" 
     	;;
-    5)  # 5
-    	[ -n "$ACTIVE_PLAYER" ] && notify-send -t 1000 "5"
+    5)  # lower volume
+    	[ -n "$ACTIVE_PLAYER" ] && playerctl --player="$ACTIVE_PLAYER" volume "$(playerctl --player="$ACTIVE_PLAYER" volume | awk '{v=$1-0.1; if (v>1) v=1; print v}')" 
     	;;
 esac
 
 # decide icon
+# ▶ ⏸ ❚❚ ⊚ ⊗ 
 if [ -n "$ACTIVE_PLAYER" ]; then
     case "$STATUS" in
-        Playing) ICON="▶ " ;;
-        Paused)  ICON="⏸ " ;;
+        Playing) ICON="⊙" ;;
+        Paused)  ICON="⊗" ;;
         *)       ICON="❚❚ " ;;
     esac
 
@@ -63,5 +66,7 @@ else
     # nothing playing -- show nothing
     echo ""
 fi
+
+pkill -RTMIN+4 dwmblocks
 
 exit 0
