@@ -1,0 +1,25 @@
+
+set guidestripe 100
+
+set tabsize 4
+
+# set tabstospaces
+
+set autoindent
+
+# set breaklonglines
+set softwrap
+
+## set linenumbers
+set numbercolor red,black
+
+set promptcolor magenta,white
+
+# set indicator 
+## scroll wheel
+
+set mouse
+## mouse support
+
+set speller "spell"
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
