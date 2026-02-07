@@ -11,7 +11,7 @@ exec sxhkd &
 exec dunst &
 
 # Set cursor size -- I like 2400 CPI (3rd click)
-## export XCURSOR_SIZE=5
+export XCURSOR_SIZE=5
 # Tell X server where congfig is
 xrdb ~/.Xresources &
 
@@ -19,16 +19,14 @@ xrdb ~/.Xresources &
 exec dwmblocks &
 (sleep 1 && ~/.#/scripts/mediaplayer_listener.sh) &
 
-# Config first monitor
+# Config monitors
 xrandr --output HDMI-A-0 --mode 1920x1080 &
-
-# Config second monitor
 xrandr --output HDMI-A-1-1 --rotate left --mode 1680x1050 --right-of HDMI-A-0 &
 
-# Set wallpaper
-feh --bg-scale ~/.local/share/backgrounds/blue_dist_2.jpg --bg-scale ~/.local/share/backgrounds/blue_dist_2.jpg &
+# Set wallpapers
+feh --bg-fill '/home/zac/.local/share/backgrounds/mono_light_distortion_2.jpg' '/home/zac/.local/share/backgrounds/mono_light_distortion_2.jpg' &
+# feh --bg-fill 'file' --bg-fill 'file' &
 # wallpapers in ~/.local/share/backgrounds/
-# chroma_dark_2.jpg
 
 # Set starting volume
 pactl set-sink-volume 0 50% &
