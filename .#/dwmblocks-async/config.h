@@ -22,7 +22,8 @@
     X( " ", "~/.#/scripts/mediaplayer.sh",			0, 4 ) \
     X( "", "~/.#/scripts/vol_ctrl.sh",				0, 3 ) \
     X( "", "~/.#/scripts/cpu_mem_report.sh", 	   30, 2 ) \
-    X( "",  "~/.#/scripts/date_time_report.sh",		5, 1 ) 
+    X( "", "~/.#/scripts/date_time_report.sh",		5, 1 )
+    // ^ rightmost
 
 // X( "", "pactl get-sink-volume @DEFAULT_SINK@ | grep -o '[0-9]\\+%' | head -n1", 	0, 1 )
 // X( "", "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' ", 	0, 1 ) \

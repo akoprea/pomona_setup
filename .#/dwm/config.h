@@ -6,34 +6,27 @@ static const unsigned int gappx     = 6;        /* gaps between windows */
 static const unsigned int snap      = 14;       /* snap pixel - 32 */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=14" };
+static const char *fonts[]          = { "monospace:size=12" }; // "monospace:size=14"
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#5b34eb"; 	// accent color
-/* 
-	purple: #5b34eb
-	light green-gray: #465e4c
-	green-gray: #222e25 
-	light orange: #bf8d3d 
-	cyan: #005577 
-*/
-static const char col_dark_cyan[] = "#3c887e";
-static const char col_deep_teal[] = "#5b7b7a";
-static const char col_dusty_taupe[] = "#a17c6b";
-static const char col_redl[] = "#FF7373";
 
+// COLORS
+static const char col_dark[]       = "#222222"; // darkest
+static const char col_slate[]       = "#444444";
+static const char col_light[]       = "#eeeeee"; // almost white
+static const char col_cyan[] = "#5b34eb";
+static const char col_red[] = "#FF7373"; // <---
+static const char col_purple[] = "#5b34eb";
+static const char col_green[] = "#465e4c";
+static const char col_dust[] = "#a17c6b";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 }, 
-	[SchemeSel]  = { col_gray4, col_redl,  col_redl  }, 
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_redl,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { col_gray4, col_redl,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	/*               fg(text)         bg         border   */
+	[SchemeNorm] = { col_light, col_dark, col_slate }, 
+	[SchemeSel]  = { col_light, col_red,  col_red  }, //g3
+	[SchemeStatus]  = { col_light, col_dark,  "#000000"  }, // Statusbar right
+	[SchemeTagsSel]  = { col_light, col_red,  "#000000"  }, // Tagbar left selected
+	[SchemeTagsNorm]  = { col_light, col_dark,  "#000000"  }, // Tagbar left unselected
+	[SchemeInfoSel]  = { col_light, col_red,  "#000000"  }, // infobar middle  selected
+	[SchemeInfoNorm]  = { col_light, col_dark,  "#000000"  }, // infobar middle  unselected
 };
 
 /* tagging */
@@ -50,7 +43,8 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "pavucontrol", NULL,    NULL,       0,	    1, 		 -1 }, // floating volume control
 	{ "discord", NULL, NULL,	      0, 	    0, 		  1 }, // discord monitor 1
-	{ "Spotify", NULL, NULL, 	      8, 	    0, 		  1 }, // spotify monitor 1
+	{ "Spotify", NULL, NULL, 	      8, 	    0, 		  -1 }, // spotify monitor 1
+	// tags mask -- uses binary counting method where '1's are on. 'MSB' is right-most tag 
 };
 
 /* layout(s) */
@@ -83,7 +77,7 @@ static const Layout layouts[] = {
 /* commands */
 /* keybinds handled by sxhkd */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { NULL }; // { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; 	// i removed dmenu. but this command needs to be here for everything to work.
+static const char *dmenucmd[] = { NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
@@ -99,9 +93,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_z,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_F1,     setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_F2,     setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_F3,     setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_t,     setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,     setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,     setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
