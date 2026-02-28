@@ -1,0 +1,62 @@
+#### about this system.
+
+
+===== APPS =====
+program picker: rofi (drun)		<--- Alt+Space
+terminal: alacritty 			<--- Win+Return
+web browser: firefox 		<--- Win+W
+file explorer (gui): nemo		<--- Win+E
+file explorer (terminal): lf, mc
+text editor (gui): gedit 		**want to replace
+text editor (terminal): nano, vim
+photo viewer: feh
+photo editor: gimp
+video player: vlc
+music player (gui): spotify (w/ local library)
+music player (terminal): kew
+!! music downloader (terminal): spotdl (see ~/.venv/)
+music tagger: puddletag
+archive manager (terminal): 7z
+password manager: keepassxc
+office suite: libreoffice-still (libreoffice)
+volume manager: pavucontrol	<--- Win+Ctrl+V
+package manager: pacman, yay
+antivirus: clamTk
+screenshot: flameshot
+
+Other:
+discord
+irssi (terminal irc client)
+ffmpeg
+git
+inxi (BASIC system info)
+hwinfo (hardware info)
+less (terminal file veiw/reader)
+jp2a (terminal jpeg to ascii)
+nano
+picom (x server compositor)
+slock (lock screen) 			<--- Win+Ctrl+L
+sbar (status bar)
+wmname (set window manager name)
+sxhkd (keybinds manager)
+gparted (gui partition manager. run with sudo)
+dmenu (dmenu-sys) (system controls) 	<--- Win+Ctrl+P
+whatip (ip/lan info)
+cdrtools (cdda2XXX) (cd read tool)
+
+
+===== LOGIN/WINDOW-MANAGER PROCESS =====
+uses systemd-boot (bootctl).
+custom /etc/issue to show cool logo.
+default login (no greeter)
+file .bash_profile runs:
+- startx (starts x server), and redirects output to trash to keep terminal clear after login.
+x-server looks at file .xinitrc, which:
+- sets cursor size.
+- sets bar name -- either with script ~/Scripts/dwm_clock.sh or via sbar (~/.#/sbar/).
+- configs monitors using xrandr (more x-server stuff).
+- sets wallpapers using feh.
+- starts picom compositor (see ~/config/picom/picom.conf).
+- finally starts dwm. window manager finally displays.
+
+

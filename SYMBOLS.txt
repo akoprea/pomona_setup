@@ -1,0 +1,59 @@
+#### SYMBOLS
+
+# =======
+# CIRCLED
+# =======
+⊕	
+⊖	waiting
+⊗	blocked/no
+⊘	null
+⊙	flowing/yes
+⊚	restricted
+⨀	heavy flowing
+
+
+# =============
+# GREEK LETTERS
+# =============
+<upper><lower><other>	<name> - <note>
+
+ALPHABET
+Αα	Alpha
+Ββ	Beta
+Γγ	Gamma
+Δδ	Delta
+Εε	Epsilon
+Ζζ	Zeta
+Ηη	Eta
+Θθ	Theta
+Ιι	Iota
+Κκ	Kappa
+Λλ	Lambda
+Μμ	Mu
+Νν	Nu
+Ξξ	Xi
+Οο	Omicron
+Ππ	Pi
+Ρρ	Rho
+Σσς	Sigma - 3rd: lowercase word-final pos
+Ττ	Tau
+Υυ	Upsilon
+Φφ	Phi
+Χχ	Chi
+Ψψ	Psi
+Ωω	Omega
+
+ARCHAIC LOCAL VARIANTS
+Ϝϝϛ	Digamma - 3rd: numeral
+Ϻ	San
+Ͷ	Tsan / Digamma
+Ͱ	Heta
+Ϙϙϟ	Koppa - 3rd: modern numeral sign. replaced by Kappa
+ϡͲ	Sampi - modern, archaic numeral
+Ϸϸ	Sho - Bactrian language
+
+LIGATURES
+Ϗϗⳤ	Kai - conjunction "and". 3rd: Coptic variant
+Ϛϛ	Stigma
+
+

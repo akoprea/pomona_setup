@@ -1,0 +1,10 @@
+PROBLEM: bootctl failed to boot the main partition after update packages with pacman or yay
+ERROR: ../systemd/src/boot/boot.c:2649@call_image_start: Error preparing initrd: Not found
+PROBABLE-CAUSE: package update was interupted
+SOLUTION:
+- Boot live usb, `mount` main and boot partitions, `arch-chroot`.
+- `pacman -Syu`
+- `mkinitcpio -P`
+- `bootctl update`
+- Exit chroot, unmount everything, and reboot
+
