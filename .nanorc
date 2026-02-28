@@ -1,25 +1,28 @@
+#### NANORC -- zac
 
-set guidestripe 100
+# Guidelines
+## set guidestripe 100
 
+# Tabs and Indent
 set tabsize 4
-
-# set tabstospaces
-
+## set tabstospaces
 set autoindent
 
-# set breaklonglines
+# Hard and Soft wraps
+## set breaklonglines
 set softwrap
 
-## set linenumbers
+# Line numbers, and colors
+set linenumbers
 set numbercolor red,black
-
 set promptcolor magenta,white
 
-# set indicator 
-## scroll wheel
+# Scroll wheel kinda
+## set indicator 
 
+# Mouse click support
 set mouse
-## mouse support
 
+# Spell check app
 set speller "spell"
-#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+

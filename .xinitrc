@@ -1,8 +1,12 @@
 ## Called by 'startx' to configure xorg server, and start dwm window manager.
 
-# Set fake window manager name so that JDownloader2 works
-(sleep 1 && wmname LG3D) &
-# must wait until xserver and dwm have fully loaded, thus the sleep.
+# Ensure Xresources settings are used
+## ie for mouse cursor
+xrdb ~/.Xresources
+
+# Config monitors
+xrandr --output HDMI-A-0 --mode 1920x1080 &
+xrandr --output HDMI-A-1-1 --rotate left --mode 1680x1050 --right-of HDMI-A-0 &
 
 # Start sxhkd for keyboard shortcuts
 exec sxhkd &
@@ -15,25 +19,26 @@ export XCURSOR_SIZE=5
 # Tell X server where congfig is
 xrdb ~/.Xresources &
 
-# Start status bar and supporting scripts
-exec dwmblocks &
-(sleep 1 && ~/.#/scripts/mediaplayer_listener.sh) &
-
-# Config monitors
-xrandr --output HDMI-A-0 --mode 1920x1080 &
-xrandr --output HDMI-A-1-1 --rotate left --mode 1680x1050 --right-of HDMI-A-0 &
-
 # Set wallpapers
-feh --bg-fill '/home/zac/.local/share/backgrounds/mono_light_distortion_2.jpg' '/home/zac/.local/share/backgrounds/mono_light_distortion_2.jpg' &
+feh --bg-fill '/home/zac/.wallpapers/koi.jpg' '/home/zac/.wallpapers/koi.jpg' &
 # feh --bg-fill 'file' --bg-fill 'file' &
-# wallpapers in ~/.local/share/backgrounds/
+# wallpapers in ~/.wallpapers
 
 # Set starting volume
 pactl set-sink-volume 0 50% &
 # set to 50%
 
+# Set fake window manager name so that JDownloader2 works
+(sleep 1 && wmname LG3D) &
+# must wait until xserver and dwm have fully loaded, thus the sleep.
+
 # Compositing service (no screen tear, fading, shadows)
 picom &
+
+# Start status bar and supporting scripts
+(sleep 1 && exec dwmblocks) & 
+## waits to let the pactl get set up
+(sleep 1 && ~/.#/scripts/mediaplayer_listener.sh) &
 
 # Start DWM
 exec dwm
