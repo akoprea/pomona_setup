@@ -2,7 +2,11 @@
 
 # Ensure Xresources settings are used
 ## ie for mouse cursor
-xrdb ~/.Xresources
+xrdb ~/.Xresources &
+# Set cursor size -- I like 2400 CPI (3rd click)
+## export XCURSOR_SIZE=12
+# Set mouse cursor and theme for x11 (apps can override)
+## xsetroot -xcf /usr/share/icons/whiteglass/cursors/left_ptr 16 &
 
 # Config monitors
 xrandr --output HDMI-A-0 --mode 1920x1080 &
@@ -14,13 +18,9 @@ exec sxhkd &
 # Start dunst for notifications
 exec dunst &
 
-# Set cursor size -- I like 2400 CPI (3rd click)
-export XCURSOR_SIZE=5
-# Tell X server where congfig is
-xrdb ~/.Xresources &
-
 # Set wallpapers
-feh --bg-fill '/home/zac/.wallpapers/koi.jpg' '/home/zac/.wallpapers/koi.jpg' &
+feh --bg-fill '/home/zac/.wallpapers/raycast/blue_distortion_1.jpg' '/home/zac/.wallpapers/raycast/blue_distortion_1.jpg' &
+# feh --bg-fill '/home/zac/.wallpapers/raycast/mono_light_distortion_1.jpg' '/home/zac/.wallpapers/raycast/mono_light_distortion_1.jpg' &
 # feh --bg-fill 'file' --bg-fill 'file' &
 # wallpapers in ~/.wallpapers
 
@@ -38,7 +38,7 @@ picom &
 # Start status bar and supporting scripts
 (sleep 1 && exec dwmblocks) & 
 ## waits to let the pactl get set up
-(sleep 1 && ~/.#/scripts/mediaplayer_listener.sh) &
+(sleep 2 && ~/.#/scripts/mediaplayer_listener.sh) &
 
 # Start DWM
 exec dwm
